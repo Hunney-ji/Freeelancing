@@ -1,0 +1,202 @@
+<%-layout("./layouts/boilerplates")%>
+<style>
+    body{
+        background-image: url('https://img.freepik.com/free-vector/abstract-blue-circle-black-background-technology_1142-12714.jpg?w=996&t=st=1704124518~exp=1704125118~hmac=fe68475bd923a89889aa6ce92e291668d9f8af570d358ec605f6a14c45fae907');
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: 'Arial', sans-serif;
+        color: white;
+
+    }
+    .btn-primary{
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+    .work{
+        margin: 3rem;
+    }
+    .listing-link{
+        text-decoration: none;
+        margin-bottom: 2rem;
+    }
+    .card-body,.card-pay{
+        font-size: 13px;
+    }
+</style>
+<body>
+    <div class="aboutme">
+        <div class="about-me">
+            <h2 style="color: white; padding-left: 4.7rem; border:1px solid white; border-radius: 1rem;">Personal information :</h2>
+            <br>
+            <h3><%=Idowner.username%></h3>
+            <br>
+            <h6><strong>Phone : </strong>935726371</h6>
+            
+            <% if(Listing){%>
+            <br>
+            <h5>Email : <%=Idowner.Email %></h5>
+            <%}%>
+            <% if(!Listing){%>
+            <br>
+            <h5>Email : <%=Idowner.Email %></h5>
+            <br>
+            <% if(currUser.profession=="Producer"){%>
+                <a class="btn btn-danger nav-link" href="/listings/new">Add New jobs</a> 
+                <%}%>
+            
+            <%}%>
+        </div>
+        <div>
+            <% if(Listing){%>
+            <h1>I'm a <br><%=Listing.profession %> <br>from <%=Listing.country %><br>
+            <%if(currUser.profession=="Producer"){%>
+                <form method="GET" action="/profile/new">
+                    <button class="btn btn-danger nav-button" >Edit Profile</button>
+                </form>
+                <%}else{%><form method="GET" action="/profile/new">
+                    <button class="btn btn-danger nav-button" >Hiring-Request</button>
+                </form><%}%>
+                
+            </h1>
+            <%}%><% if(!Listing){%>
+            <h1>I'm a <br>HUMAN <br>from EARTH<br>
+            <% if(currUser.profession=="Producer"){%>
+                <form method="GET" action="/profile/new">
+                    <button class="btn btn-danger nav-button" >Edit Profile</button>
+                </form>
+                <%}else{%><form method="GET" action="/profile/new">
+                    <button class="btn btn-danger nav-button" >Hiring-Request</button>
+                </form>
+            <%}%>
+            </h1>
+            <%}%>
+            
+        </div>
+        <div class="card" style="width: 30rem; height: 30rem; background-color: transparent;">
+            <img src="<%=Idowner.profileimage.url%>" class="card-img-top" alt="...">
+        </div>
+        <% if(currUser.profession=="Producer"){%>
+            <a class="nav-link notific" aria-current="page" ><i class="fa-solid fa-bell"></i></a>
+            <%}%>
+    </div>
+    <div class="card-back" style="width: 100%; height: 26rem;">
+    </div>
+    <div class="notification hidden">
+        <h5>Notification :<i class="fa-solid fa-square-xmark"></i></h5>
+        <% for(let msg of msgs){%>
+            <li class="message-right2">
+                <p class="message-content1">
+                    <%=msg.title%><br>
+                </p>
+            </li>
+            <hr>
+        <%}%>
+      </div>
+    <div class="chat hidden" style="width: 20rem; height: 26rem;">
+        <h5 class="chat5"><%=Idowner.username%> <i class="fa-solid fa-square-xmark" id="x"></i></h5>
+        <ul class="message-container">
+           
+        </ul>
+        <form id="messageform">
+            <div class="input-message">
+                <input type="text" id="message-input">
+                <button>Send <i class="fas fa-paper-plane"></i></button>
+            </div>
+        </form>
+    </div>
+    <a class="btn btn-primary chat2">Chat  <i class="fa-brands fa-rocketchat"></i></a>
+    <section class="work">
+        <h2>Job-Offered</h2>
+        <div class="ongoing">
+            <% for(let job of joboffered){%>
+                <a href="/job/<%=job._id%>"  class="listing-link">
+                    <div class="card ms-3 content" style="width: 18rem; height: 10rem;">
+                        <div class="card-body">
+                            <h6><strong>Post :<%=job.title%></strong></h6>
+                            <br>
+                            <span class="card-text-p">
+                                <b>Expected-time :</b><%=job.expectedtime%> Hour per day <br>
+                            </span>
+                            <span class="card-text-main">
+                            <b>Skills :</b><%=job.expectedSkill %><br>
+                            </span>
+                            
+                            <span class="card-pay">
+                                <b>country :</b> <%=job.country%> 
+                            </span>
+                        </div>
+                        </div>
+                </a>
+            <%}%>
+        </div>
+    </section>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script >
+    const socket=io();
+    socket.on('client-message',(data)=>{
+    console.log(data);
+    })
+
+
+    const messageform=document.querySelector('#messageform');
+    const messageinput=document.querySelector('#message-input');
+    const messagecontainer=document.querySelector('.message-container');
+    let chat=document.querySelector('.chat');
+    let button=document.querySelector('.chat2');
+    let chat5=document.querySelector('.chat5');
+    button.addEventListener("click",()=>{
+      chat.classList.toggle('hidden');
+      button.classList.toggle('hidden');
+      
+    })
+    let cross2=document.querySelector('#x');
+    cross2.addEventListener("click",()=>{
+      chat.classList.toggle('hidden');
+      button.classList.toggle('hidden');
+      
+    })
+    function sendMessage(){
+    if(messageinput.value==='') return;
+    const data={
+        message:messageinput.value,
+        date:new Date()
+    
+    }
+    socket.emit('message',data)
+    messagetoui(true,data);
+    messageinput.value='';
+    }
+    messageform.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        sendMessage();
+    })
+    socket.on("chat-message",(data)=>{
+        console.log(data);
+        messagetoui(false,data);
+    })
+    
+function messagetoui(isOwn,data){
+    const element=`<li class="${isOwn?"message-right":"message-left"}">
+            <p class="message-content">
+                ${isOwn? chat5.innerText:"The person"} :${data.message}<br>
+                <span>..${data.date}</span>
+            </p>
+        </li>`;
+    messagecontainer.innerHTML+=element;
+    scrolltobotton();
+}
+function scrolltobotton(){
+    messagecontainer.scrollTo(0,messagecontainer.scrollHeight);
+}
+let notification=document.querySelector('.notific');
+  let div=document.querySelector('.notification');
+  notification.addEventListener("click",()=>{
+    div.classList.toggle('hidden');
+  })
+  let cross=document.querySelector('.fa-square-xmark');
+  cross.addEventListener("click",()=>{
+    div.classList.toggle('hidden');
+  })
+</script>

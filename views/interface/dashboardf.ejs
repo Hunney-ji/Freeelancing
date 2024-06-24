@@ -1,0 +1,128 @@
+<%-layout("./layouts/boilerplates")%>
+<style>
+    body{
+        background-image: url('https://img.freepik.com/free-vector/abstract-blue-circle-black-background-technology_1142-12714.jpg?w=996&t=st=1704124518~exp=1704125118~hmac=fe68475bd923a89889aa6ce92e291668d9f8af570d358ec605f6a14c45fae907');
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    .listing-link{
+        text-decoration: none;
+        margin-bottom: 2rem;
+    }
+    .card-body,.card-pay{
+        font-size: 13px;
+    }
+    .nav-item{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    #myInput,#myInput2,#myInput3,#myInput1{
+        margin: .5rem;
+        border-radius:5rem ;
+        padding-left: 1rem;
+    }
+</style>
+<body>
+    <section class="dashboardf">
+        <h1>On Going jobs</h1>
+        <div class="ongoing">
+            
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><%=currUser.username%></h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+        </div>
+        <div class="container-fluid2  ms-auto  ">  
+            
+            <div class="nav-item">
+            <span><input type="text" id="myInput1" onkeyup="searchFunctionpost()"><strong>Post</strong></span>
+            <span><input type="text" id="myInput2" onkeyup="searchFunctionp()"><strong>Expected-Time</strong></span>
+            <span><input type="text" id="myInput3" onkeyup="searchFunctionc()"><strong>Skills</strong></span>
+            <span><input type="text" id="myInput" onkeyup="searchFunctione()"><strong>Country</strong></span>
+            </div>
+        </div>
+        <h1> Available jobs</h1>
+        <div class="avail">
+                <% for(let listing of allListings){%>
+                    <a href="/job/<%=listing._id%>" style="width: 20rem;" class="listing-link">
+                        <div class="card ms-3 content" style="width: 18rem; height: 10rem;">
+                            <div class="card-body">
+                                <h6><strong>Post :<b><%=listing.title%></b></strong></h6>
+                                <br>
+                                <span class="card-text-p">
+                                    <b>Expected-time :</b><%=listing.expectedtime%> Hour per day <br>
+                                </span>
+                                <span class="card-text-main">
+                                <b>Skills :</b><%=listing.expectedSkill %><br>
+                                </span>
+                                
+                                <span class="card-pay">
+                                    <b>country :</b> <%=listing.country%> 
+                                </span>
+                            </div>
+                            </div>
+                    </a>
+                <%}%>
+        </div>
+    </section>
+</body>
+<script>
+        const searchFunctione=()=>{
+        let filter=document.querySelector('#myInput').value.toUpperCase();
+        let content=document.querySelectorAll('.content');
+        let span=document.querySelectorAll('.card-pay');
+        for(let i=0;i<span.length;i++){
+            let text=span[i].textContent || span[i].innerText;
+            if(text.toUpperCase().indexOf(filter)>-1){
+                content[i].style.display="";
+            }
+            else{
+                content[i].style.display="none";
+            }
+        }
+    }
+        const searchFunctionpost=()=>{
+        let filter=document.querySelector('#myInput1').value.toUpperCase();
+        let content=document.querySelectorAll('.content');
+        let span=document.querySelectorAll('h6');
+        for(let i=0;i<span.length;i++){
+            let text=span[i].textContent || span[i].innerText;
+            if(text.toUpperCase().indexOf(filter)>-1){
+                content[i].style.display="";
+            }
+            else{
+                content[i].style.display="none";
+            }
+        }
+    }
+    const searchFunctionp=()=>{
+        let filter=document.querySelector('#myInput2').value.toUpperCase();
+        let content=document.querySelectorAll('.content');
+        let span=document.querySelectorAll('.card-text-p');
+        for(let i=0;i<span.length;i++){
+            let text=span[i].textContent || span[i].innerText;
+            if(text.toUpperCase().indexOf(filter)>-1){
+                content[i].style.display="";
+            }
+            else{
+                content[i].style.display="none";
+            }
+        }
+    }
+    const searchFunctionc=()=>{
+        let filter=document.querySelector('#myInput3').value.toUpperCase();
+        let content=document.querySelectorAll('.content');
+        let span=document.querySelectorAll('.card-text-main');
+        for(let i=0;i<span.length;i++){
+            let text=span[i].textContent || span[i].innerText;
+            if(text.toUpperCase().indexOf(filter)>-1){
+                content[i].style.display="";
+            }
+            else{
+                content[i].style.display="none";
+            }
+        }
+    }
+</script>

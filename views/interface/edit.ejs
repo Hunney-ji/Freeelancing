@@ -1,0 +1,71 @@
+<%-layout("./layouts/boilerplates")%>
+<body>
+    <form method="POST" action="/profile/<%=currUser._id %>" class="need-validation" enctype="multipart/form-data">
+        <div class="row">
+            <h1>Edit your profile </h1>
+            <div class="col-8 offset-2">
+                <%if(user){%>
+                    <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="profession" class="form-label">I am a</label>
+                        <input name="listing[profession]" type="text" value="<%=user.profession %>" class="form-control" placeholder="Software engineer.." required/>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="price" class="form-label">Expected Pay-grade</label>
+                        <input name="listing[expected]" type="number" value="<%=user.expected%>" class="form-control" placeholder="$4/Hour.." required/>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="country" class="form-label">country</label>
+                        <input name="listing[country]" type="text" value="<%=user.country%>" class="form-control" placeholder="India.." required/>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[About]"  type="text"  class="form-control" required ><%=user.About%></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input name="listing[image]" type="file"  class="form-control"/>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="location" class="form-label">Previous Job</label>
+                    <textarea name="listing[previousjob]" type="text" class="form-control" required><%=user.previousjob%></textarea>
+                </div>
+                <button class="btn btn-dark">Edit</button>
+            </div>
+            <%}%>
+            <%if(!user){%>
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="profession" class="form-label">I am a</label>
+                        <input name="listing[profession]" type="text"  class="form-control" placeholder="Software engineer.." required/>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="price" class="form-label">Expected Pay-grade</label>
+                        <input name="listing[expected]" type="number" class="form-control" placeholder="$4/Hour.." required/>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="country" class="form-label">country</label>
+                        <input name="listing[country]" type="text"  class="form-control" placeholder="India.." required/>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[About]"  type="text"  class="form-control" required ></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input name="listing[image]" type="file"  class="form-control"/>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="location" class="form-label">Previous Job</label>
+                    <textarea name="listing[previousjob]" type="text" class="form-control" required></textarea>
+                </div>
+                <button class="btn btn-dark">Edit</button>
+            </div>
+                <%}%>
+        </div>
+    </form>
+</body>

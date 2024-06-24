@@ -1,0 +1,37 @@
+<%-layout("./layouts/boilerplates")%>
+<body>
+    <section class="Home">
+        <img src="https://img.freepik.com/premium-vector/night-city-skyline-with-glowing-neon-lights_212168-516.jpg?w=1060">
+        <img class="train" src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihaRXw9sPCoefQwsxaZK5x6cSeSSNbeBQsVGI8KF3_H6Llq3IZHW9DrOzipQb3xyKsxz2L4HFIMyN1WaPqFQhqpdstmsHeFxKvc=w1920-h868-rw-v1">
+        <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihY82jKYDdSM3EZ6vrlhd0QXaBZUd5ds4woBp1VFg1z1tLOgHU7SWcaX3IHz0-vwQthDT3pw9L00G50fNecqRNws9uSn_h1ziZY=w1920-h868-rw-v18">
+        <img class="left-tree" src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihYr98ganPYO-2kE48o1H4vcNioGxZ_ENUJtZPK58hclXoAcIjrNRlt8PCmtyq67g0wWH-JbHe6qdw5MRga-xOQ12Lc2HMf_k38=w1920-h868-rw-v1">    
+        <img class="right-tree" src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZ2GVQijZY-LWJ4NRhesfTZ9Px5gcPt40pW3AFRRdggXo2Tyfq7tHg0cWEOEVf4std79PRTUX0GfNF0RcCHb5PCgJG1XkShI10=w1920-h868-rw-v1">
+        <div class="heading">
+            <h1>Start your journey</h1>
+         <button  class="btn btn-danger" href="/signup">Get Started</button>
+        </div>
+        <!-- <img class="grass" style="z-index: 7;" src="https://lh3.googleusercontent.com/u/0/drive-viewer/AEYmBYRvyz4QlL-pHzQeahXSSGCL-oXrudidsLNrMW2Ez6ts431UcYJHqIFpTt-40styj1nQJB3cZQyMe4_GxBuDkPJyXcD-=w1920-h868"> -->
+
+        
+    </section>
+    <section class="about" style="z-index: 7;">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt exercitationem, reprehenderit in minus ex alias incidunt eligendi placeat debitis sed quaerat delectus recusandae earum quo saepe minima enim quidem magnam.</p>
+    </section>
+    
+    <script>
+        let train =document.querySelector('.train');
+        let lefttree =document.querySelector('.left-tree');
+        let righttree =document.querySelector('.right-tree');
+        let heading =document.querySelector('.heading');
+
+        window.addEventListener("scroll",()=>{
+        let value = window.scrollY;
+        
+        train.style.left = value * 1 + "px";
+        lefttree.style.right = value * .7 + "px";
+        righttree.style.left = value * .7+ "px";
+
+        heading.style.marginTop =( value * .4+ "px");
+        })
+    </script>
+</body>

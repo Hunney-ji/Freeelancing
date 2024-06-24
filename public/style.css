@@ -1,0 +1,316 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x :hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+.container{
+    margin: 0;
+    padding: 0;
+    flex: 1;
+}
+.f-info{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    height: 5rem;
+    background-color: rgb(249, 241, 228);
+}
+.f-info-social, .f-info-links{
+    width: 100%;
+}
+.f-info-social{
+    font-size: 1.2rem;
+}
+.f-info-links a{
+    text-decoration: none;
+    color: #222;
+}
+.login-div{
+    color: white;
+    z-index: 10;
+    border: 1px solid rgb(137, 135, 135);
+    height: 20rem;
+    border-radius: 1rem;
+    align-items: center;
+    
+}
+.signup-div{
+    display: flex;
+    color: white;
+    border-radius: 1rem;
+    margin-top: 10%;
+    z-index: 10;
+    justify-content: space-evenly;
+
+}
+.signup-div div h4{
+    display: inline;
+    margin-left: 3rem;
+    font-size: 1.2rem;
+}
+.Additional{
+    opacity: 0;
+}
+.notification{
+    position: fixed;
+    width: 15rem;
+    height: 20rem;
+    top: 3rem;
+    right: 10rem;
+    color: white;
+    border: 1px solid rgb(155, 155, 155);
+    border-radius: 1rem;
+    overflow:auto;
+    z-index: 100;
+    text-align: end;
+    backdrop-filter: blur(30px);
+    list-style: none;
+  }
+.notification h5{
+    margin: 0px 2rem;
+}
+  .hidden {
+    display: none;
+  }
+  
+.aboutme{
+    width: 100%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.aboutme h1{
+    position: relative;
+    left: 8rem;
+    top: 10rem;
+    display: inline;
+    z-index: 2;
+    font-size: 3rem;
+    font-weight: 600;
+    color: aliceblue;
+}
+.aboutme img{
+    width: 100%;
+    height: 100%;
+    border-radius: .6rem;
+    border: 5px solid rgb(81, 34, 107);
+}
+.card-back{
+    background-color: rgb(60, 26, 84);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -2;
+}
+.details{
+    position: absolute;
+    top: 7.6%;
+    left: 10%;
+    height: 80vh;
+    width:35% ;
+    border-radius: 0.8rem;
+    border: 1px solid white;
+}
+.Home{
+    width: 100%;
+    height: 100vh;
+}
+.Home .heading{
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    z-index: 5;
+    color: rgb(255, 255, 255);
+}
+.Home img{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.about {
+    background-color: rgb(18, 17, 54);
+    width: 100dvw;
+    height: 100vh;
+    object-fit: cover;
+    color: aliceblue;
+}
+.Home img.train{
+    transform: translate(-30px);
+}
+.navbar{
+    background-attachment: fixed;
+    background-color:  rgb(18, 17, 54);
+    z-index: 5;
+    padding: 0;
+    margin: 0;
+}
+.nav-link{
+    color: rgb(156, 156, 156);
+}
+.about-me{
+    position: relative;
+    color: rgb(156, 156, 156);
+    top: -3rem;
+    width: 30rem;
+    height: 18rem;
+    border-radius: 1rem;
+    margin-left: 1.2rem;
+}
+.card-about{
+    position: relative;
+    top: -10rem;
+    width: 40%;
+}
+.active{
+    display:none;
+}
+.form-active{
+    display:none;
+}
+.work{
+    width: 100%;
+}
+.work h2{
+    color: white;
+    margin-left: 3rem;
+    padding-left: 5rem;
+    border: 1px solid white;
+    border-radius: 1rem;
+}
+.avail{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: 6rem;
+    margin-top: 3rem;
+}
+.ongoing{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 6rem;
+    margin-top: 3rem;
+}
+.dashboardf h1{
+ margin-left: 2rem;
+ color: rgb(227, 203, 203);
+}
+.container-fluid2{
+    margin: 3rem;
+    background-color: rgb(227, 203, 203);
+    width: 100vw;
+    height: 3rem;
+
+}
+ 
+.job-container {
+max-width: 80%;
+margin: 5% auto;
+margin-left: 15%;
+padding-left: 5%;
+border: 1px solid #ddd;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.job-details {
+margin-bottom: 20px;
+}
+
+.job-details h1 {
+color: #333;
+}
+
+.job-description,
+.skill-set,
+.pay-grade,
+.expected-time {
+margin-bottom: 15px;
+}
+
+.producer-details h2 {
+color: #333;
+}
+
+.producer-details p {
+line-height: 1.6;
+}
+
+.chat{
+    position: fixed;
+    bottom: 1.5rem;
+    right:1.5rem;
+    border-radius: 1rem 1rem 0 0;
+    background-color: #d4d4d4;
+}
+.chat >h5{
+    text-align: right;
+    padding-right:1rem ;
+    color: #d4d4d4;
+    background-color: #333;
+    border-radius: 1rem 1rem 0 0;
+
+    
+}
+.message-container{
+    display: flex;
+    background-color: #d4d4d4;
+    flex-direction: column;
+    overflow-x:hidden ;
+    overflow-y: scroll;
+    width: 100%;
+    height: 21.2rem;
+}
+.message-left{
+    list-style: none;
+    font-size: 18px;
+    word-wrap: break-word;
+    width: 10rem;
+    border: 1px solid black;
+    border-radius: 1rem 1rem 1rem 0rem;
+    margin-left: -1.5rem;
+    align-self: flex-start;
+    padding: 2px 1rem;
+    margin-bottom: 1rem;
+    height: auto;
+}
+.message-right{
+    list-style: none;
+    width: 10rem;
+    border: 1px solid black;
+    border-radius: 1rem 1rem 0rem 1rem;
+    align-self: flex-end;
+    padding: 2px 1rem;
+    margin-bottom: 1rem;
+    height: auto;
+}
+.message-right span,.message-left span{
+    font-size: 10px;
+}
+.input-message{
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+}
+#message-input{
+    flex: 1;
+}
+.message-content{
+    color: #000;
+}

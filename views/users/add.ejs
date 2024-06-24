@@ -1,0 +1,51 @@
+<%-layout("./layouts/boilerplates")%>
+<style>
+    body{
+        background-image: url('https://img.freepik.com/free-vector/abstract-blue-circle-black-background-technology_1142-12714.jpg?w=996&t=st=1704124518~exp=1704125118~hmac=fe68475bd923a89889aa6ce92e291668d9f8af570d358ec605f6a14c45fae907');
+        background-size: cover;
+        background-attachment: fixed;
+    }
+</style>
+<body>
+    <h3>Generate employment</h3>
+    <form method="POST" action="/listings" class="need-validation" >
+        <div class="row">
+            <div class="col-8 offset-2">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name="listing[title]" placeholder="create the title" type="text" class="form-control" required />  
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" placeholder="create the description" type="text" class="form-control" required></textarea>
+                    <div class="valid-feedback">Looks good</div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="expectedTime" class="form-label">expectedTime</label>
+                        <input name="listing[expectedtime]" placeholder="9Am to 5pm" type="number" class="form-control" required/>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <label for="expectedSkill" class="form-label">expectedSkill</label>
+                        <input name="listing[expectedSkill]" placeholder="Data-analyst" type="text" class="form-control" required/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Expected paygrade</label>
+                        <input name="listing[price]" placeholder="$/Hour" type="number" class="form-control" required/>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input name="listing[country]" placeholder="what would be the country" type="text" class="form-control" required/>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input name="listing[location]" placeholder="what would be the location" type="text" class="form-control" required/>
+                </div>
+                <button class="btn btn-dark">Add</button>
+            </div>
+        </div>
+    </form>
+</body>

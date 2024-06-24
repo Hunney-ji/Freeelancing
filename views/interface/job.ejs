@@ -1,0 +1,31 @@
+<%-layout("./layouts/boilerplates")%>
+<body>
+
+  <div class="job-container">
+    <section class="job-details">
+      <h1>Job Title: <%=joboffered.title%></h1>
+      <p class="job-description">
+        We are seeking a skilled web developer to join our dynamic team. The ideal candidate should have experience in front-end and back-end development, proficient in HTML, CSS, JavaScript, and have a strong understanding of web technologies.
+      </p>
+      <p class="skill-set">
+        <strong>Expected Skill Set:</strong> HTML, CSS, JavaScript, Node.js, React.js ,<%=joboffered.expectedSkill%>
+      </p>
+      <p class="pay-grade">
+        <strong>Pay Grade:</strong> Competitive salary based on experience <%=joboffered.price%>$/Hour
+      </p>
+      <p class="expected-time">
+        <strong>Expected Time:</strong> Full-time <%=joboffered.expectedtime%>
+      </p>
+    </section>
+
+    <section class="producer-details">
+      <h2>About the Producer</h2>
+      <a class="btn btn-primary" href="/profile/Producer/<%=joboffered.owners[0]._id%>">View Profile</a>
+      <p>
+        <%=joboffered.description%>
+        XYZ Company is a leading tech firm dedicated to delivering innovative solutions. We value creativity, teamwork, and continuous learning. Join us in shaping the future of technology!
+      </p>
+    </section>
+  </div>
+
+</body>

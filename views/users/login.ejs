@@ -1,0 +1,36 @@
+<%-layout("./layouts/boilerplates")%>
+    <style>
+        body{
+            background-image: url('https://img.freepik.com/free-vector/cyber-security-concept_23-2148541077.jpg?w=996&t=st=1704199864~exp=1704200464~hmac=16d10f69ee0a651c8d4736d8525d7ee28ec794fa6209636a1c6146c35c4fea32');
+            background-size: cover;
+            background-attachment: fixed;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .login-div{
+            margin-top:10% ;
+        }
+    </style>
+    
+<body>
+    <form method="POST" action="/login" class="need-validation" >
+        <div class="row offset-8 login-div">
+            <div class="col-12 ">
+                <div><h3>Login</h3></div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input name="username" id="username" type="text" placeholder="username.." class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">password</label>
+                    <input name="password" id="password"  type="password" placeholder="password.." class="form-control"  required/>
+                </div>
+                <p>don't have an account?<a href="/signup">SignUp</a></p>
+                <div><button class="btn btn-success">Login</button></div>
+            </div>
+        </div>
+    </form>
+</body>
+
+    
+    

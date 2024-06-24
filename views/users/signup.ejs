@@ -1,0 +1,66 @@
+<%-layout("./layouts/boilerplates")%>
+    <style>
+        body{
+            background-image: url('https://img.freepik.com/free-vector/cyber-security-concept_23-2148541077.jpg?w=996&t=st=1704199864~exp=1704200464~hmac=16d10f69ee0a651c8d4736d8525d7ee28ec794fa6209636a1c6146c35c4fea32');
+            background-size: cover;
+            background-attachment: fixed;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .login-div{
+            margin-top:10% ;
+        }
+    </style>
+    
+</head>
+<body>
+    <form method="POST" action="/signup" class="need-validation" enctype="multipart/form-data">
+        <div class=" signup-div">
+            <div class="col-3 offset-1 Additional">
+                <h3>Additional details</h3>
+                
+                <div class="mb-3">
+                    <label for="username" class="form-label">Desciption</label>
+                    <textarea name="description" id="username" type="text" placeholder="description.." class="form-control"></textarea>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="form-label">Projects</label>
+                    <input name="projects" id="password"  type="file" placeholder="password.." class="form-control"/>
+                </div>
+            </div>
+            <div class="col-4 offset-3 mb-3 ">
+                <h3>Create a new Account</h3>
+                <h4>Freelancer</h4>
+                    <input type="radio" name="profession" id="Freelancer" value="Freelancer" >
+                <h4>Producer</h4>
+                    <input type="radio" name="profession" id="Producer" value="Producer">
+                
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input name="username" id="username" type="text" placeholder="username.." class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Email" class="form-label">Email</label>
+                    <input name="Email" id="Email" type="email" placeholder="Email.." class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Image" class="form-label">Image</label>
+                    <input name="Image" id="Image" type="file" placeholder="Add profile image.." class="form-control" />
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="form-label">password</label>
+                    <input name="password" id="password"  type="password" placeholder="password.." class="form-control"  required/>
+                    
+                </div>
+                <p>Already have an account?<a href="/login">Login</a></p>
+                <button class="btn btn-success">Signup</button>
+            </div>
+        </div>
+        
+    </form>
+    
+</body>
+
+
+    
+    
